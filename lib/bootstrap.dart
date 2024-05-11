@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:arcibo/util/config/environment.dart';
 import 'package:arcibo/util/constant/env_enum.dart';
+import 'package:arcibo/util/injection/injection.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 
@@ -50,5 +51,5 @@ Future<void> bootstrap(
 
 Future<void> initConfig(Env env) async {
   await environment.initConfig(env);
-
+  await initInjection();
 }
