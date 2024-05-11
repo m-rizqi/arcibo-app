@@ -1,4 +1,4 @@
-package com.example.arcibo
+package com.arcibo.arcibo
 
 import io.flutter.embedding.android.FlutterActivity
 
