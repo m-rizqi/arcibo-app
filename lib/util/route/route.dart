@@ -1,7 +1,8 @@
 import 'package:arcibo/presentation/home/view/home_page.dart';
+import 'package:arcibo/util/route/custom_route_observer.dart';
 import 'package:flutter/material.dart';
 
-final RouteObserver<ModalRoute<dynamic>> routeObserver = RouteObserver<ModalRoute<dynamic>>();
+final CustomRouteObserver routeObserver = CustomRouteObserver();
 
 class AppNavigator {
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
@@ -49,4 +50,9 @@ class AppNavigator {
   static void pop() => state?.pop();
 
   static NavigatorState? get state => navigatorKey.currentState;
+
+  static String? getCurrentRouteName(BuildContext context) {
+    final ModalRoute? modalRoute = ModalRoute.of(context);
+    return modalRoute?.settings.name;
+  }
 }

@@ -2,7 +2,13 @@
 class Assets {
   Assets._();
 
+  static const String iconsIconCube = 'assets/icons/icon_cube.svg';
+  static const String iconsIconExit = 'assets/icons/icon_exit.svg';
+  static const String iconsIconGear = 'assets/icons/icon_gear.svg';
+  static const String iconsIconHouse = 'assets/icons/icon_house.svg';
+  static const String iconsIconUser = 'assets/icons/icon_user.svg';
   static const String iconsLogoLauncher = 'assets/icons/logo_launcher.png';
   static const String iconsLogoSplash = 'assets/icons/logo_splash.png';
+  static const String iconsLogoTextHorizontal = 'assets/icons/logo_text_horizontal.svg';
 
 }

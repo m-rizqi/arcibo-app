@@ -7,4 +7,5 @@ class ARCIBOColor {
   static const blackBrand = Color(0xFF090908);
   static const greenLight = Color(0xFF129135);
   static const greenDark = Color(0xFF0A6422);
+  static const grey2D = Color(0xFF2D2D2D);
 }
