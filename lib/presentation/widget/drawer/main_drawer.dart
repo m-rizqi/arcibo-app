@@ -6,8 +6,8 @@ import 'package:arcibo/util/constant/arcibo_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-Drawer mainDrawer(BuildContext context) {
-  final drawerItems = _drawerItems(context);
+Drawer mainDrawer(BuildContext context, ScaffoldState? scaffoldState) {
+  final drawerItems = _drawerItems(context, scaffoldState);
   return Drawer(
     backgroundColor: Theme.of(context).colorScheme.background,
     child: Column(
@@ -57,27 +57,31 @@ Drawer mainDrawer(BuildContext context) {
   );
 }
 
-List<MainDrawerItem> _drawerItems(BuildContext context) {
+List<MainDrawerItem> _drawerItems(BuildContext context, ScaffoldState? scaffoldState) {
   return [
-    const MainDrawerItem(
+    MainDrawerItem(
       iconSvg: Assets.iconsIconHouse,
       title: 'Beranda',
       path: HomePage.routeName,
+      scaffoldState: scaffoldState,
     ),
-    const MainDrawerItem(
+    MainDrawerItem(
       iconSvg: Assets.iconsIconCube,
       title: 'Koleksi ARCIBO',
       path: '/gallery',
+      scaffoldState: scaffoldState,
     ),
-    const MainDrawerItem(
+    MainDrawerItem(
       iconSvg: Assets.iconsIconUser,
       title: 'Profil',
       path: '/gallery',
+      scaffoldState: scaffoldState,
     ),
-    const MainDrawerItem(
+    MainDrawerItem(
       iconSvg: Assets.iconsIconGear,
       title: 'Pengaturan',
       path: '/settings',
+      scaffoldState: scaffoldState,
     ),
     MainDrawerItem(
       iconSvg: Assets.iconsIconExit,

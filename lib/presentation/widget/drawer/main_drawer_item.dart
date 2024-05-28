@@ -12,6 +12,7 @@ class MainDrawerItem extends StatelessWidget {
     required this.title,
     required this.path,
     this.requestColor,
+    this.scaffoldState,
   });
 
   final String iconSvg;
@@ -21,9 +22,10 @@ class MainDrawerItem extends StatelessWidget {
   final String path;
 
   final Color? requestColor;
+  final ScaffoldState? scaffoldState;
 
   //#region FUNCTION
-  Color getItemColor(BuildContext context){
+  Color getItemColor(BuildContext context) {
     if (requestColor != null) return requestColor!;
     if (AppNavigator.getCurrentRouteName(context) == path) {
       return ARCIBOColor.whiteBrand;
@@ -31,14 +33,14 @@ class MainDrawerItem extends StatelessWidget {
     return ARCIBOColor.grey2D;
   }
 
-  Color getBackgroundColor(BuildContext context){
+  Color getBackgroundColor(BuildContext context) {
     if (requestColor != null) return Colors.transparent;
     if (AppNavigator.getCurrentRouteName(context) == path) {
       return ARCIBOColor.brownBrand;
     }
     return Colors.transparent;
   }
-  
+
   TextStyle getTextStyle(BuildContext context) {
     if (AppNavigator.getCurrentRouteName(context) == path) {
       return TextStyle(
@@ -56,12 +58,14 @@ class MainDrawerItem extends StatelessWidget {
       fontWeight: FontWeight.w500,
     );
   }
+
   //#endregion FUNCTION
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        scaffoldState?.openEndDrawer();
         Navigator.pushNamed(context, path);
       },
       child: Container(
