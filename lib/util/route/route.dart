@@ -2,8 +2,6 @@ import 'package:arcibo/presentation/home/view/home_page.dart';
 import 'package:arcibo/util/route/custom_route_observer.dart';
 import 'package:flutter/material.dart';
 
-final CustomRouteObserver routeObserver = CustomRouteObserver();
-
 class AppNavigator {
   static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
