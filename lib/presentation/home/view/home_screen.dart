@@ -1,4 +1,5 @@
 import 'package:arcibo/generated/assets.dart';
+import 'package:arcibo/presentation/game/pick_seri/view/game_pick_seri_page.dart';
 import 'package:arcibo/presentation/global_key_route.dart';
 import 'package:arcibo/presentation/home/widget/home_arcibo_colletion/home_arcibo_collection.dart';
 import 'package:arcibo/presentation/home/widget/last_activity/last_activity_item.dart';
@@ -8,7 +9,6 @@ import 'package:arcibo/presentation/widget/ads_banner/ads_banner.dart';
 import 'package:arcibo/presentation/widget/button/primary_button/arcibo_primary_button.dart';
 import 'package:arcibo/presentation/widget/drawer/main_drawer.dart';
 import 'package:arcibo/util/constant/arcibo_color.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -21,8 +21,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  double minChildSize = 0.62;
+  double minChildSize = 0.61;
   double maxChildSize = 0.88;
+  final scaffoldState = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +34,10 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
 
-    final drawer = mainDrawer(context);
+    final drawer = mainDrawer(context, scaffoldState.currentState);
 
     return Scaffold(
-      key: scaffoldKey,
+      key: scaffoldState,
       drawer: drawer,
       extendBodyBehindAppBar: true,
       appBar: AppBar(
@@ -48,13 +49,15 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: EdgeInsets.only(top: 0.h),
           child: Row(
             children: [
-              Text(
-                'Ayo Bermain ARCIBO',
-                style: TextStyle(
-                  fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.w700,
-                  color: ARCIBOColor.brownBrand,
-                  fontSize: 16.sp,
+              Expanded(
+                child: Text(
+                  'ARCIBO(Augmented Reality Civil Block)',
+                  style: TextStyle(
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.w700,
+                    color: ARCIBOColor.brownBrand,
+                    fontSize: 16.sp,
+                  ),
                 ),
               ),
               SizedBox(
@@ -69,12 +72,11 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
         leading: IconButton(
-          onPressed: () {
-            scaffoldKey.currentState?.openDrawer();
-          },
+          onPressed: scaffoldState.currentState?.openDrawer,
           icon: Icon(
             Icons.menu_rounded,
             size: 24.r,
+            color: ARCIBOColor.brownBrand,
           ),
         ),
       ),
@@ -102,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               SizedBox(height: 96.h),
               AdsBanner(
-                adsItems: [1, 2, 3],
+                adsItems: const [1, 2, 3],
               ),
             ],
           ),
@@ -243,7 +245,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         itemCount: 5,
                       ),
                       SizedBox(
-                        height: 24.h,
+                        height: 96.h,
                       ),
                     ],
                   ),
@@ -259,7 +261,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 right: 16.w,
                 bottom: 24.h,
               ),
-              child: const ARCIBOPrimaryButton(text: 'Ayo Rakit ARCIBO✊',),
+              child: ARCIBOPrimaryButton(
+                text: 'Ayo Rakit ARCIBO✊',
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    GamePickSeriPage.routeName,
+                  );
+                },
+              ),
             ),
           ),
         ],

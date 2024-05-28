@@ -1,5 +1,5 @@
+import 'package:arcibo/presentation/game/pick_seri/view/game_pick_seri_page.dart';
 import 'package:arcibo/presentation/home/view/home_page.dart';
-import 'package:arcibo/util/route/custom_route_observer.dart';
 import 'package:flutter/material.dart';
 
 class AppNavigator {
@@ -30,6 +30,8 @@ class AppNavigator {
     switch (routeName) {
       case HomePage.routeName:
         return HomePage.route();
+      case GamePickSeriPage.routeName:
+        return GamePickSeriPage.route();
       default:
         return null;
     }
