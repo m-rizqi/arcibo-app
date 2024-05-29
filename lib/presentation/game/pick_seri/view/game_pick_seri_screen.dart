@@ -1,5 +1,6 @@
 import 'package:arcibo/generated/assets.dart';
 import 'package:arcibo/presentation/game/pick_seri/widget/arcibo_collection_item/arcibo_collection_item.dart';
+import 'package:arcibo/presentation/game/play/view/game_play_page.dart';
 import 'package:arcibo/presentation/style/arcibo_textstyle.dart';
 import 'package:arcibo/presentation/widget/button/primary_button/arcibo_primary_button.dart';
 import 'package:arcibo/presentation/widget/drawer/main_drawer.dart';
@@ -147,7 +148,7 @@ class _GamePickSeriScreenState extends State<GamePickSeriScreen> {
                 onPressed: () {
                   Navigator.pushNamed(
                     context,
-                    '',
+                    GamePlayPage.routeName,
                   );
                 },
               ),

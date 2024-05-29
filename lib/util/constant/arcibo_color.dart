@@ -11,4 +11,5 @@ class ARCIBOColor {
   static const grey2D = Color(0xFF2D2D2D);
   static const creamPrimaryContainer = Color(0xFFFFDBCB);
   static const creamTertiaryContainer = Color(0xFFFFDEAB);
+  static const orangeBrand = Color(0xFFFF701F);
 }
