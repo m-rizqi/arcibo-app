@@ -6,10 +6,8 @@ import 'package:arcibo/presentation/game/play/widget/button/prev_step_button.dar
 import 'package:arcibo/presentation/style/arcibo_textstyle.dart';
 import 'package:arcibo/presentation/widget/drawer/main_drawer.dart';
 import 'package:arcibo/util/constant/arcibo_color.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class GamePlayScreen extends StatefulWidget {
@@ -23,6 +21,16 @@ class _GamePlayScreenState extends State<GamePlayScreen> {
   double minChildSize = 0.25;
   double maxChildSize = 0.88;
   final scaffoldState = GlobalKey<ScaffoldState>();
+
+  //#region AR FUNCTION
+
+  //#endregion AR FUNCTION
+
+  @override
+  void dispose() {
+    // arkitController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -151,9 +159,13 @@ class _GamePlayScreenState extends State<GamePlayScreen> {
                         ),
                       ),
                     ),
-                  )
+                  ),
+                  // ARKitSceneView(
+                  //   onARKitViewCreated: onARKitViewCreated,
+                  //   environmentTexturing: ARWorldTrackingConfigurationEnvironmentTexturing.automatic,
+                  // ),
                 ],
-              )
+              ),
             ],
           ),
           DraggableScrollableSheet(
@@ -212,9 +224,13 @@ class _GamePlayScreenState extends State<GamePlayScreen> {
                       child: Row(
                         children: [
                           PrevStepButton(),
-                          SizedBox(width: 8.w,),
+                          SizedBox(
+                            width: 8.w,
+                          ),
                           PlayPauseButton(),
-                          SizedBox(width: 8.w,),
+                          SizedBox(
+                            width: 8.w,
+                          ),
                           NextStepButton(),
                         ],
                       ),
